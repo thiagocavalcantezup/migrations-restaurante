@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-MigrationsRestauranteApplication<migrations-restaurante>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "br.com.zup.handora.migrationsrestaurante.MigrationsRestauranteApplication",
+      "projectName": "migrations-restaurante",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
