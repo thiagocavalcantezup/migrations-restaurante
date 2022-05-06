@@ -6,9 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "restaurantes")
+@Table(name = "restaurantes", uniqueConstraints = @UniqueConstraint(name = "UK_RESTAURANTE_CNPJ", columnNames = "cnpj"))
 public class Restaurante {
 
     @Id
