@@ -10,5 +10,6 @@ CREATE TABLE restaurantes (
   telefone VARCHAR(20),
   celular VARCHAR(20),
   email VARCHAR(60),
-  site VARCHAR(120)
+  site VARCHAR(120),
+  CONSTRAINT UK_RESTAURANTE_CNPJ UNIQUE (cnpj)
 )
