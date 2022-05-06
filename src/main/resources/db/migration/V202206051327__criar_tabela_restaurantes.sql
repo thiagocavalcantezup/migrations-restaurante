@@ -1,6 +1,6 @@
 CREATE TABLE restaurantes (
   id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  nomeFantasia VARCHAR(255) NOT NULL,
+  nome_fantasia VARCHAR(255) NOT NULL,
   cnpj VARCHAR(18) NOT NULL,
   endereco VARCHAR(120) NOT NULL,
   bairro VARCHAR(60) NOT NULL,
