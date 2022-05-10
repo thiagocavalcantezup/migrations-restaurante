@@ -55,6 +55,9 @@ public class Restaurante {
     @Enumerated(EnumType.STRING)
     private ClassificacaoRestaurante classificacao;
 
+    @Column(nullable = false)
+    private Boolean usaCupom;
+
     /**
      * @deprecated Construtor de uso exclusivo do Hibernate
      */
@@ -63,7 +66,8 @@ public class Restaurante {
 
     public Restaurante(String nomeFantasia, String cnpj, String endereco, String bairro,
                        String cidade, String estado, String cep, String telefone, String celular,
-                       String email, String site, ClassificacaoRestaurante classificacao) {
+                       String email, String site, ClassificacaoRestaurante classificacao,
+                       Boolean usaCupom) {
         this.nomeFantasia = nomeFantasia;
         this.cnpj = cnpj;
         this.endereco = endereco;
@@ -76,6 +80,7 @@ public class Restaurante {
         this.email = email;
         this.site = site;
         this.classificacao = classificacao;
+        this.usaCupom = usaCupom;
     }
 
     public Long getId() {

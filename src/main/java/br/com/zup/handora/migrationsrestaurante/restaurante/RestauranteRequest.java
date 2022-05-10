@@ -57,6 +57,9 @@ public class RestauranteRequest {
     @Enumerated(EnumType.STRING)
     private ClassificacaoRestaurante classificacao;
 
+    @NotNull
+    private Boolean usaCupom;
+
     public RestauranteRequest() {}
 
     public RestauranteRequest(@NotBlank @Size(max = 255) String nomeFantasia,
@@ -68,7 +71,8 @@ public class RestauranteRequest {
                               @NotBlank @Size(max = 9) String cep, @Size(max = 20) String telefone,
                               @Size(max = 20) String celular, @Email @Size(max = 60) String email,
                               @Size(max = 120) String site,
-                              @NotNull ClassificacaoRestaurante classificacao) {
+                              @NotNull ClassificacaoRestaurante classificacao,
+                              @NotNull Boolean usaCupom) {
         this.nomeFantasia = nomeFantasia;
         this.cnpj = cnpj;
         this.endereco = endereco;
@@ -81,12 +85,13 @@ public class RestauranteRequest {
         this.email = email;
         this.site = site;
         this.classificacao = classificacao;
+        this.usaCupom = usaCupom;
     }
 
     public Restaurante toModel() {
         return new Restaurante(
             nomeFantasia, cnpj, endereco, bairro, cidade, estado, cep, telefone, celular, email,
-            site, classificacao
+            site, classificacao, usaCupom
         );
     }
 
@@ -136,6 +141,10 @@ public class RestauranteRequest {
 
     public ClassificacaoRestaurante getClassificacao() {
         return classificacao;
+    }
+
+    public Boolean getUsaCupom() {
+        return usaCupom;
     }
 
 }
