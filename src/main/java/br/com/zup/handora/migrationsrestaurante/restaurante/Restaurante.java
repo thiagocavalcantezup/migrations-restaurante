@@ -2,6 +2,8 @@ package br.com.zup.handora.migrationsrestaurante.restaurante;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -49,6 +51,10 @@ public class Restaurante {
     @Column(length = 120)
     private String site;
 
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private ClassificacaoRestaurante classificacao;
+
     /**
      * @deprecated Construtor de uso exclusivo do Hibernate
      */
@@ -57,7 +63,7 @@ public class Restaurante {
 
     public Restaurante(String nomeFantasia, String cnpj, String endereco, String bairro,
                        String cidade, String estado, String cep, String telefone, String celular,
-                       String email, String site) {
+                       String email, String site, ClassificacaoRestaurante classificacao) {
         this.nomeFantasia = nomeFantasia;
         this.cnpj = cnpj;
         this.endereco = endereco;
@@ -69,6 +75,7 @@ public class Restaurante {
         this.celular = celular;
         this.email = email;
         this.site = site;
+        this.classificacao = classificacao;
     }
 
     public Long getId() {

@@ -1,7 +1,10 @@
 package br.com.zup.handora.migrationsrestaurante.restaurante;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CNPJ;
@@ -50,6 +53,10 @@ public class RestauranteRequest {
     @Size(max = 120)
     private String site;
 
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private ClassificacaoRestaurante classificacao;
+
     public RestauranteRequest() {}
 
     public RestauranteRequest(@NotBlank @Size(max = 255) String nomeFantasia,
@@ -60,7 +67,8 @@ public class RestauranteRequest {
                               @NotBlank @Size(max = 60) String estado,
                               @NotBlank @Size(max = 9) String cep, @Size(max = 20) String telefone,
                               @Size(max = 20) String celular, @Email @Size(max = 60) String email,
-                              @Size(max = 120) String site) {
+                              @Size(max = 120) String site,
+                              @NotNull ClassificacaoRestaurante classificacao) {
         this.nomeFantasia = nomeFantasia;
         this.cnpj = cnpj;
         this.endereco = endereco;
@@ -72,12 +80,13 @@ public class RestauranteRequest {
         this.celular = celular;
         this.email = email;
         this.site = site;
+        this.classificacao = classificacao;
     }
 
     public Restaurante toModel() {
         return new Restaurante(
             nomeFantasia, cnpj, endereco, bairro, cidade, estado, cep, telefone, celular, email,
-            site
+            site, classificacao
         );
     }
 
@@ -123,6 +132,10 @@ public class RestauranteRequest {
 
     public String getSite() {
         return site;
+    }
+
+    public ClassificacaoRestaurante getClassificacao() {
+        return classificacao;
     }
 
 }
